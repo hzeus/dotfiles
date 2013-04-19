@@ -1,0 +1,2 @@
+color railscasts2
+autocmd VimEnter * NERDTreeClose

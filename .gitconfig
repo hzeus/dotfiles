@@ -1,0 +1,22 @@
+[user]
+	name = Heiko Zeus
+	email = heiko.zeus@zweitag.de
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  ps = push origin master
+  pl = pull origin master
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[core]
+  editor = vim
+	excludesfile = /Users/heikozeus/.gitignore
+[color]
+	diff = auto
+[mergetool]
+	keepBackup = true
+[push]
+	default = simple
