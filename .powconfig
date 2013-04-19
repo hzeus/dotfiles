@@ -1,3 +1,4 @@
 export PATH="/Users/heikozeus/.rbenv/shims:/Users/heikozeus/.rbenv/bin:$PATH"
 export DYLD_LIBRARY_PATH; DYLD_LIBRARY_PATH='/opt/oracle/instantclient_10_2'
-export NLS_LANG=GERMANY_GERMAN.UTF8
+export NLS_LANG=GERMAN_GERMANY.UTF8
+export POW_TIMEOUT=3600
