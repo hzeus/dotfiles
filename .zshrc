@@ -11,7 +11,7 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_FREE_MIN=50000
 
-export EDITOR=mvim
+export EDITOR=vim
 
 # Oracle Development: ruby-oci8
 export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
@@ -46,8 +46,13 @@ function zweitag_vpn() {
   open afp://192.168.44.7/Organisation
 }
 
+function vundle() {
+  vim +BundleInstall +qall
+}
+
 alias gt='gittower -s .'
 alias m='mvim .'
+alias gti=git
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
