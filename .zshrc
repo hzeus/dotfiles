@@ -14,7 +14,7 @@ export RUBY_FREE_MIN=50000
 export EDITOR=vim
 
 # Oracle Development: ruby-oci8
-export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_10_2
+export DYLD_LIBRARY_PATH=~/oracle/instantclient_11_2
 export NLS_LANG=GERMAN_GERMANY.UTF8
 #export NLS_COMP=LINGUISTIC
 #export NLS_SORT=BINARY_CI
@@ -53,6 +53,8 @@ function vundle() {
 alias gt='gittower -s .'
 alias m='mvim .'
 alias gti=git
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
