@@ -1,7 +1,0 @@
-set wildignore+=*.sassc,*.log,*.spa,*/tmp/*,*/coverage/*,*/doc/*
-set wmnu
-let mapleader=","
-"call janus#disable_plugin('nerdtree', "I do not like it")
-set guioptions=-t
-"let g:ctrlp_custom_ignore = '\.html$'
-autocmd BufWritePre * :%s/\s\+$//e
