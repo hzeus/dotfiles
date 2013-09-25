@@ -11,7 +11,7 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_FREE_MIN=50000
 
-export EDITOR=vim
+export EDITOR=/usr/bin/vim
 
 # Oracle Development: ruby-oci8
 export DYLD_LIBRARY_PATH=~/oracle/instantclient_11_2
@@ -53,6 +53,7 @@ function vundle() {
 alias gt='gittower -s .'
 alias m='mvim .'
 alias gti=git
+alias gh="open \`git remote -v | grep git@github | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//' -e 's/\.git//'\`"
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
