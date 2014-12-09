@@ -14,6 +14,6 @@
 --ignore-dir=log
 --ignore-dir=doc
 --ignore-dir=coverage
---ignore-dir=spec/fixtures
 --ignore-dir=public
 --ignore-dir=bin
+--ignore-file=is:tags

@@ -11,12 +11,21 @@
   ps = push origin master
   pl = pull origin master
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
+  when-merged = "!f() { git log --merges --ancestry-path --oneline $1..origin | tail; }; f"
+  clean-merged = !git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d
 [core]
   editor = vim
-	excludesfile = /Users/heikozeus/.gitignore_global
+	excludesfile = /opt/boxen/config/git/gitignore
 [color]
 	diff = auto
 [mergetool]
 	keepBackup = true
 [push]
-	default = simple
+	default = current
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+protocol = https
