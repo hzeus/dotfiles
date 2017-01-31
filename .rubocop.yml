@@ -1,16 +1,3 @@
-AllCops:
-  Include:
-    - config.ru
-    - Gemfile
-    - Rakefile
-  Exclude:
-    - bin/**/*
-    - config/**/*
-    - db/**/*
-    - script/**/*
-    - tmp/**/*
-    - vendor/**/*
-
 Rails:
   Enabled: true
 
