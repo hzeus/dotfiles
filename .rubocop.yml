@@ -11,6 +11,24 @@ AllCops:
     - tmp/**/*
     - vendor/**/*
 
+Rails:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
@@ -20,71 +38,65 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Enabled: false
 
-Metrics/BlockLength:
+Metrics/ParameterLists:
   Enabled: false
 
-Metrics/ClassLength:
+Metrics/PerceivedComplexity:
   Enabled: false
-
-Metrics/AbcSize:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Style/GuardClause:
-  Severity: convention
-
-Style/EmptyMethod:
-  Enabled: false
-
-Style/MutableConstant:
-  Enabled: false
-
-#Style/StringLiterals:
-  #Enabled: false
-
-Style/NumericLiterals:
-  Enabled: false
-
-Style/SymbolProc:
-  Enabled: false
-
-Style/AndOr:
-  EnforcedStyle: conditionals
-
-Style/Alias:
-  EnforcedStyle: prefer_alias_method
 
 Style/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
-Style/FirstParameterIndentation:
-  EnforcedStyle: consistent
-
-Style/MultilineOperationIndentation:
-  EnforcedStyle: indented
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
 
 Style/AlignHash:
   EnforcedLastArgumentHashStyle: ignore_implicit
 
-Metrics/ParameterLists:
-  Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
 
 Style/ClassAndModuleChildren:
   Enabled: false
   # We should discuss this one
 
-Metrics/PerceivedComplexity:
+Style/Documentation:
   Enabled: false
 
-Metrics/CyclomaticComplexity:
-  Enabled: false
+Style/DotPosition:
+  EnforcedStyle: trailing
 
 Style/EmptyCaseCondition:
   Enabled: false
 
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Style/GuardClause:
+  Enabled: false
+
 Style/Lambda:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/NumericLiterals:
   Enabled: false
 
 Style/ParallelAssignment:
@@ -94,38 +106,17 @@ Style/PredicateName:
   NamePrefixBlacklist:
     - is_
 
-Style/EmptyElse:
-  EnforcedStyle: empty
-
-Style/GuardClause:
-  Enabled: false
-
-Style/NegatedIf:
-  Enabled: false
-
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Style/DotPosition:
-  EnforcedStyle: trailing
-
 Style/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: false
 
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Style/UnlessElse:
+#Style/StringLiterals:
+  #Enabled: false
+
+Style/SymbolProc:
   Enabled: false
 
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    '%':  '()'
-    '%i': '[]'
-    '%q': '()'
-    '%Q': '()'
-    '%r': '{}'
-    '%s': '()'
-    '%w': '[]'
-    '%W': '[]'
-    '%x': '()'
+Style/UnlessElse:
+  Enabled: false
