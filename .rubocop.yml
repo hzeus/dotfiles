@@ -1,0 +1,131 @@
+AllCops:
+  Include:
+    - config.ru
+    - Gemfile
+    - Rakefile
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - script/**/*
+    - tmp/**/*
+    - vendor/**/*
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Severity: convention
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+#Style/StringLiterals:
+  #Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+  # We should discuss this one
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/GuardClause:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/DotPosition:
+  EnforcedStyle: trailing
+
+Style/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: false
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Style/UnlessElse:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  '()'
+    '%i': '[]'
+    '%q': '()'
+    '%Q': '()'
+    '%r': '{}'
+    '%s': '()'
+    '%w': '[]'
+    '%W': '[]'
+    '%x': '()'
