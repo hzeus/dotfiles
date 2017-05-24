@@ -13,19 +13,24 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
   when-merged = "!f() { git log --merges --ancestry-path --oneline $1..origin | tail; }; f"
-  clean-merged = !git co master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d
+  clean-merged = !git co master && git pull origin master && git branch --merged | grep -v '*' | xargs -n 1 git branch -d
+  recent-branches = !git reflog | grep checkout | head -n 30 | ag --only-matching --nocolor '(?<=from )[^ ]*' | awk '!x[$0]++'
 [core]
   editor = vim
-	excludesfile = /opt/boxen/config/git/gitignore
+  excludesfile = ~/.gitignore_global
 [color]
-	diff = auto
+  diff = auto
 [mergetool]
-	keepBackup = true
+	keepBackup = false
 [push]
-	default = current
-
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
+  default = current
 
 [hub]
-protocol = https
+  protocol = https
+  host = github.fuchs-gewuerze.local
+
+[merge]
+  tool = vimdiff
+
+[pre-commit]
+  checks = [rspec_focus, pry, merge_conflict, json]

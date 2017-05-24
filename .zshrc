@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 export FUCHS_DEV=$HOME/Development/fuchs
+export ZT_DEPLOY_USER=heiko-zeus
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -8,7 +9,9 @@ export FUCHS_DEV=$HOME/Development/fuchs
 # time that oh-my-zsh is loaded.
 export ZSH_THEME="robbyrussell"
 
-export ANDROID_HOME=/opt/boxen/homebrew/opt/android-sdk
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 export RUBY_GC_MALLOC_LIMIT=50000000
 #export RUBY_HEAP_MIN_SLOTS=500000
@@ -19,10 +22,15 @@ export EDITOR=/usr/bin/vim
 export PGDATA=/opt/boxen/homebrew/var/postgres
 
 # Oracle Development: ruby-oci8
-export DYLD_LIBRARY_PATH=~/oracle/instantclient_11_2
+export PATH=~/oracle/instantclient_11_2:$PATH
+#export DYLD_LIBRARY_PATH=~/oracle/instantclient_11_2
+export OCI_DIR=$(brew --prefix)/lib
 export NLS_LANG=GERMAN_GERMANY.UTF8
 #export NLS_COMP=LINGUISTIC
 #export NLS_SORT=BINARY_CI
+#
+# https://bugs.chromium.org/p/chromedriver/issues/detail?id=1552#c43
+export LANG=en_US.UTF-8
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -38,7 +46,7 @@ export NLS_LANG=GERMAN_GERMANY.UTF8
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx bundler rails git ruby github mix fu fs ee)
+plugins=(osx bundler rails git ruby mix fu fs ee)
 
 source $ZSH/oh-my-zsh.sh
 #[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
@@ -46,27 +54,75 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 homebrew=/usr/local/bin:/usr/local/sbin
 export PATH=$homebrew:$PATH::/usr/bin:/bin:/usr/sbin:/sbin #:/usr/X11/bin
-
-function restart_fuchs_vpn() {
-  ssh hzeus@vpn1.zweitag.de "sudo /etc/init.d/racoon restart"
-}
-
-function zweitag_vpn() {
-  open afp://192.168.44.7/Organisation
-}
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 function vundle() {
   vim +BundleInstall +qall
 }
 
+function fudb_tunnel() {
+  ssh -L 8521:10.129.2.77:1521 -t customers
+}
+
+function fudbs_tunnel() {
+  ssh -L 8521:126.210.0.25:1521 -t customers
+}
+
+function fudbs_staging_tunnel() {
+  ssh -L 8521:126.210.0.26:1521 -t customers
+}
+
+function erpp_tunnel() {
+  ssh -L 8521:10.129.2.86:1521 -t customers
+}
+
+function prism_tunnel() {
+  ssh -L 8521:10.129.2.95:1521 -t prism
+}
+
+function pksp_tunnel() {
+  ssh -L 8521:10.129.2.83:1521 -t customers
+}
+
+function erpt_tunnel() {
+  ssh -L 8521:10.129.2.85:1521 -t customers-staging
+}
+
+function essp_tunnel() {
+  ssh -L 8521:10.129.2.83:1521 -t customers-staging
+}
+
+
+function deploy_production() {
+  git checkout master
+  git pull
+  git clean-merged
+  git checkout production
+  git pull
+  git merge master
+  git push
+  cap production deploy:migrations
+}
+
+function deploy_staging() {
+  git push
+  git checkout staging
+  git pull
+  git merge -
+  git push
+  cap staging deploy:migrations
+}
+
 alias gt='gittower -s .'
 alias m='mvim'
 alias gti=git
-alias gh="open \`git remote -v | grep git@github | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//' -e 's/\.git//'\`"
+alias gh="hub browse"
+alias pull="hub pull-request"
 
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-source /opt/boxen/homebrew/Cellar/chruby/0.3.8/share/chruby/chruby.sh
-source /opt/boxen/homebrew/Cellar/chruby/0.3.8/share/chruby/auto.sh
+#source /usr/local/share/chruby/chruby.sh
+#source /usr/local/share/chruby/auto.sh
+eval "$(rbenv init -)"

@@ -1,6 +1,9 @@
 Rails:
   Enabled: true
 
+Rails/FindBy:
+  Enabled: false
+
 Bundler/OrderedGems:
   Enabled: false
 
@@ -53,6 +56,9 @@ Style/Documentation:
 Style/DotPosition:
   EnforcedStyle: trailing
 
+Style/DoubleNegation:
+  Enabled: false
+
 Style/EmptyCaseCondition:
   Enabled: false
 
@@ -68,6 +74,9 @@ Style/FirstParameterIndentation:
 Style/GuardClause:
   Enabled: false
 
+Style/IndentArray:
+  EnforcedStyle: consistent
+
 Style/Lambda:
   Enabled: false
 
@@ -79,6 +88,9 @@ Style/MultilineMethodCallIndentation:
 
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented
+
+Style/NumericPredicate:
+  Enabled: false
 
 Style/NegatedIf:
   Enabled: false
@@ -99,8 +111,8 @@ Style/SpaceInsideBlockBraces:
 Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-#Style/StringLiterals:
-  #Enabled: false
+Style/StringLiterals:
+  Enabled: false
 
 Style/SymbolProc:
   Enabled: false
