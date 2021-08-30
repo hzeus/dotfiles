@@ -1,0 +1,11 @@
+[user]
+	email = heiko.zeus@zweitag.de
+	name = Heiko Zeus
+
+[alias]
+	co = checkout
+	clean-merged = !git co main && git pull origin main && git fetch && git branch --merged | grep -v '*' | xargs -n 1 git branch -d
+	recent-branches = !git reflog | grep checkout | head -n 30 | ag --only-matching --nocolor '(?<=from )[^ ]*' | awk '!x[$0]++'
+	rb = !git reflog | grep checkout | head -n 30 | ag --only-matching --nocolor '(?<=from )[^ ]*' | awk '!x[$0]++'
+[push]
+	default = current
