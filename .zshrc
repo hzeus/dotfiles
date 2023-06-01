@@ -1,5 +1,5 @@
 # . /usr/local/opt/asdf/asdf.sh
-. /usr/local/opt/asdf/libexec/asdf.sh
+# . /usr/local/opt/asdf/libexec/asdf.sh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -74,7 +74,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 UNBUNDLED_COMMANDS=(rubocop)
-plugins=(git bundler fzf zsh-z)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export OCI_DIR=~/Development/fuchs/instantclient_19_8
 export NLS_LANG=GERMAN_GERMANY.UTF8
 
 # iex History across multiple instances
