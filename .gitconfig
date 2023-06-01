@@ -10,3 +10,6 @@
 	rb = !git reflog | grep checkout | head -n 30 | ag --only-matching --nocolor '(?<=from )[^ ]*' | awk '!x[$0]++'
 [push]
 	default = current
+	autoSetupRemote = true
+[init]
+	defaultBranch = main
